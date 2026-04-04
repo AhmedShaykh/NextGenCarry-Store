@@ -22,27 +22,18 @@ const Navbar = () => {
     const brandRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+
         const handleClickOutside = (e: MouseEvent) => {
 
-            if (categoryRef.current && !categoryRef.current.contains(e.target as Node)) {
+            if (categoryRef.current && !categoryRef.current.contains(e.target as Node)) setCategoryOpen(false);
 
-                setCategoryOpen(false);
-
-            }
-
-            if (brandRef.current && !brandRef.current.contains(e.target as Node)) {
-
-                setBrandOpen(false);
-
-            }
+            if (brandRef.current && !brandRef.current.contains(e.target as Node)) setBrandOpen(false);
 
         };
 
         document.addEventListener("mousedown", handleClickOutside);
 
-        return () =>
-
-            document.removeEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
 
     }, []);
 
@@ -62,7 +53,7 @@ const Navbar = () => {
                     </Link>
 
                     <div className="hidden md:flex items-center gap-8">
-                        <Link href="/" className="text-md font-semibold hover:text-black cursor-pointer">
+                        <Link href="/" className="text-foreground text-md font-semibold hover:text-black cursor-pointer">
                             Home
                         </Link>
 
@@ -72,7 +63,7 @@ const Navbar = () => {
                                     setCategoryOpen(!categoryOpen);
                                     setBrandOpen(false);
                                 }}
-                                className="flex items-center gap-2 text-md font-semibold hover:text-black cursor-pointer"
+                                className="flex items-center gap-2 text-foreground text-md font-semibold hover:text-black cursor-pointer"
                             >
                                 Categories
 
@@ -82,7 +73,7 @@ const Navbar = () => {
                             </button>
 
                             {categoryOpen && (
-                                <div className="absolute top-full left-0 mt-2 w-36 bg-white border rounded shadow z-50">
+                                <div className="absolute top-full left-0 mt-2 w-40 max-h-96 overflow-y-auto bg-white border rounded shadow z-50">
                                     {CATEGORIES.map((cat) => (
                                         <Link
                                             className="block px-4 py-3 font-medium text-[16px] hover:bg-orange-500 hover:text-white"
@@ -103,17 +94,17 @@ const Navbar = () => {
                                     setBrandOpen(!brandOpen);
                                     setCategoryOpen(false);
                                 }}
-                                className="flex items-center gap-2 text-md font-semibold hover:text-black cursor-pointer"
+                                className="flex items-center gap-2 text-foreground text-md font-semibold hover:text-black cursor-pointer"
                             >
                                 Brands
 
                                 <ChevronDown
-                                    className={`w-4 h-4 transition-transform ${categoryOpen ? "rotate-180" : ""}`}
+                                    className={`w-4 h-4 transition-transform ${brandOpen ? "rotate-180" : ""}`}
                                 />
                             </button>
 
                             {brandOpen && (
-                                <div className="absolute top-full left-0 mt-2 w-30 bg-white border rounded shadow z-50">
+                                <div className="absolute top-full left-0 mt-2 w-36 max-h-96 overflow-y-auto bg-white border rounded shadow z-50">
                                     {BRANDS.map((brand) => (
                                         <Link
                                             className="block px-4 py-3 font-medium text-[16px] hover:bg-orange-500 hover:text-white"
@@ -147,7 +138,7 @@ const Navbar = () => {
                     <div className="md:hidden mt-4 border-t pt-4 space-y-4">
                         <Link
                             href="/"
-                            className="block text-md font-semibold hover:text-black cursor-pointer"
+                            className="block text-[18px] font-semibold hover:text-black cursor-pointer"
                             onClick={() => {
                                 setMobileMenuOpen(false);
                                 setMobileCategoryOpen(false);
@@ -163,7 +154,7 @@ const Navbar = () => {
                                     setMobileCategoryOpen(!mobileCategoryOpen);
                                     setMobileBrandOpen(false);
                                 }}
-                                className="flex justify-between w-full text-md font-semibold hover:text-black cursor-pointer"
+                                className="flex justify-between w-full text-[18px] font-semibold hover:text-black cursor-pointer"
                             >
                                 Categories
 
@@ -197,12 +188,12 @@ const Navbar = () => {
                                     setMobileBrandOpen(!mobileBrandOpen);
                                     setMobileCategoryOpen(false);
                                 }}
-                                className="flex justify-between w-full text-md font-semibold hover:text-black cursor-pointer"
+                                className="flex justify-between w-full text-[18px] font-semibold hover:text-black cursor-pointer"
                             >
                                 Brands
 
                                 <ChevronDown
-                                    className={`w-5 h-5 transition-transform ${mobileCategoryOpen ? "rotate-180" : ""}`}
+                                    className={`w-5 h-5 transition-transform ${mobileBrandOpen ? "rotate-180" : ""}`}
                                 />
                             </button>
 

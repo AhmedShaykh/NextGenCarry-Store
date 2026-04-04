@@ -4,8 +4,8 @@ import { Mulish } from "@/lib/font";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NEXTGEN CARRY",
-  description: "NEXTGEN CARRY E-COMMERCE WEBSITE",
+  title: "NextGenCarry Store",
+  description: "NextGenCarry E-Commerce Store",
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png"
