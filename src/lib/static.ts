@@ -1,8 +1,8 @@
 export const CATEGORIES = [
     {
         id: 1,
-        name: "Bags",
-        slug: "bags"
+        name: "Luxury Handbags",
+        slug: "handbags"
     },
     {
         id: 2,
@@ -11,8 +11,8 @@ export const CATEGORIES = [
     },
     {
         id: 3,
-        name: "Jackets",
-        slug: "jackets"
+        name: "Traveling Bags",
+        slug: "traveling-bags"
     },
     {
         id: 4,
@@ -48,6 +48,11 @@ export const CATEGORIES = [
         id: 10,
         name: "Suitcase",
         slug: "suitcase"
+    },
+    {
+        id: 11,
+        name: "Jackets",
+        slug: "jackets"
     }
 ];
 
@@ -64,8 +69,8 @@ export const BRANDS = [
     },
     {
         id: 3,
-        name: "Chanel",
-        slug: "chanel"
+        name: "Channel",
+        slug: "channel"
     },
     {
         id: 4,

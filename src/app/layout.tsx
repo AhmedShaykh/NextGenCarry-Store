@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Mulish } from "@/lib/font";
 import "./globals.css";
@@ -19,12 +19,15 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={`${Mulish.className} h-full antialiased`}
       lang="en"
+      className={`${Mulish.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Navbar />
+      <body
+        className="min-h-full flex flex-col"
+        suppressHydrationWarning={true}
+      >
         {children}
+        <Toaster />
       </body>
     </html>
   );

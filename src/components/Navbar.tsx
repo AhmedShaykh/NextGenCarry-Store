@@ -52,7 +52,7 @@ const Navbar = () => {
                         />
                     </Link>
 
-                    <div className="hidden md:flex items-center gap-8">
+                    <div className="hidden md:flex items-center gap-8 px-3">
                         <Link href="/" className="text-foreground text-md font-semibold hover:text-black cursor-pointer">
                             Home
                         </Link>
@@ -63,7 +63,7 @@ const Navbar = () => {
                                     setCategoryOpen(!categoryOpen);
                                     setBrandOpen(false);
                                 }}
-                                className="flex items-center gap-2 text-foreground text-md font-semibold hover:text-black cursor-pointer"
+                                className="flex items-center gap-1 text-foreground text-md font-semibold hover:text-black cursor-pointer"
                             >
                                 Categories
 
@@ -94,7 +94,7 @@ const Navbar = () => {
                                     setBrandOpen(!brandOpen);
                                     setCategoryOpen(false);
                                 }}
-                                className="flex items-center gap-2 text-foreground text-md font-semibold hover:text-black cursor-pointer"
+                                className="flex items-center gap-1 text-foreground text-md font-semibold hover:text-black cursor-pointer"
                             >
                                 Brands
 
@@ -104,7 +104,7 @@ const Navbar = () => {
                             </button>
 
                             {brandOpen && (
-                                <div className="absolute top-full left-0 mt-2 w-36 max-h-96 overflow-y-auto bg-white border rounded shadow z-50">
+                                <div className="absolute top-full right-0 mt-2 w-36 max-h-96 overflow-y-auto bg-white border rounded shadow z-50">
                                     {BRANDS.map((brand) => (
                                         <Link
                                             className="block px-4 py-3 font-medium text-[16px] hover:bg-orange-500 hover:text-white"
