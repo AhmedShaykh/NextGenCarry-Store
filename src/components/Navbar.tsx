@@ -43,11 +43,11 @@ const Navbar = () => {
                 <div className="flex items-center justify-between">
                     <Link href="/">
                         <Image
-                            src="/Logo.svg"
+                            src="/Full Logo.svg"
                             alt="Logo"
-                            width={160}
+                            width={180}
                             height={72}
-                            className="h-16 w-auto"
+                            className="h-20 w-auto"
                             priority
                         />
                     </Link>

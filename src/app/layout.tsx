@@ -20,12 +20,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning={true}
       className={`${Mulish.className} h-full antialiased`}
     >
-      <body
-        className="min-h-full flex flex-col"
-        suppressHydrationWarning={true}
-      >
+      <body className="min-h-full flex flex-col">
         {children}
         <Toaster />
       </body>
