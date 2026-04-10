@@ -1,11 +1,7 @@
-import Hero from "@/components/Hero";
+import Home from "@/components/Home";
 
 const App = () => {
-    return (
-        <>
-            <Hero />
-        </>
-    )
+    return <Home />
 };
 
 export default App;

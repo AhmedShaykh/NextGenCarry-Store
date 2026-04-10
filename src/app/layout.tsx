@@ -1,3 +1,4 @@
+import { ToasterAlert } from "@/components/ui/toaster";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Mulish } from "@/lib/font";
@@ -24,6 +25,7 @@ export default function RootLayout({
       className={`${Mulish.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <ToasterAlert />
         {children}
         <Toaster />
       </body>

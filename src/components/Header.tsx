@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "./ui/button";
-import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,6 +10,7 @@ const Header = ({ name }: any) => {
     const router = useRouter();
 
     const Logout = async () => {
+
         try {
 
             const response = await fetch("/api/logout", {
@@ -22,11 +23,15 @@ const Header = ({ name }: any) => {
             console.log(data);
 
             if (response.status === 200) {
+
                 Cookies.remove("token");
+
                 Cookies.remove("name");
 
                 router.push("/login");
+
                 router.refresh();
+
             }
 
         } catch (error) {
@@ -34,6 +39,7 @@ const Header = ({ name }: any) => {
             console.error("LogOut Failed:", error);
 
         }
+
     };
 
     return (
