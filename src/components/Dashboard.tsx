@@ -54,7 +54,7 @@ const Dashboard = () => {
         register,
         handleSubmit,
         reset,
-        control,                    // ← Added for Select
+        control,
         formState: { errors, isSubmitting },
     } = useForm<ProductFormData>({
         resolver: zodResolver(productSchema),
@@ -137,7 +137,7 @@ const Dashboard = () => {
 
             toast.success("✅ Item created successfully!");
 
-            // Reset form but keep selected brand
+            // Reset form but keep the selected brand
             reset({
                 brand: data.brand,
                 category: "",
@@ -146,18 +146,19 @@ const Dashboard = () => {
                 desc: "",
             });
         } catch (err: any) {
-            console.error(err);
+            console.error("Submission error:", err);
 
             const errorMessage =
                 err.response?.data?.message ||
                 err.message ||
                 "Failed to create item. Please try again.";
 
+            // Improved & clearer error for duplicate imageUrl (your P2002 case)
             if (
                 errorMessage.includes("ImageUrl Already Exists") ||
                 errorMessage.includes("P2002")
             ) {
-                toast.error("❌ ImageUrl Already Exists. Please use a different URL.");
+                toast.error("❌ This Image URL is already used.\nPlease use a different image link.");
             } else {
                 toast.error(`❌ ${errorMessage}`);
             }
@@ -177,7 +178,7 @@ const Dashboard = () => {
                     <CardContent>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <FieldGroup>
-                                {/* Brand - Beautiful shadcn Dropdown */}
+                                {/* Brand Dropdown */}
                                 <Field>
                                     <FieldLabel htmlFor="brand">Brand</FieldLabel>
                                     <Controller
@@ -212,7 +213,7 @@ const Dashboard = () => {
                                     )}
                                 </Field>
 
-                                {/* Category - Beautiful shadcn Dropdown */}
+                                {/* Category Dropdown */}
                                 <Field>
                                     <FieldLabel htmlFor="category">Category</FieldLabel>
                                     <Controller
@@ -301,14 +302,21 @@ const Dashboard = () => {
                                     )}
                                 </Field>
 
-                                {/* Submit Button */}
+                                {/* Submit Button with spinner */}
                                 <Field>
                                     <Button
                                         type="submit"
                                         className="w-full font-bold py-5 cursor-pointer"
                                         disabled={isSubmitting}
                                     >
-                                        {isSubmitting ? "Creating..." : "Create Item"}
+                                        {isSubmitting ? (
+                                            <>
+                                                <span className="animate-spin inline-block w-5 h-5 mr-3 border-2 border-white border-t-transparent rounded-full"></span>
+                                                Creating...
+                                            </>
+                                        ) : (
+                                            "Create Item"
+                                        )}
                                     </Button>
                                 </Field>
                             </FieldGroup>
