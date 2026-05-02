@@ -11,46 +11,41 @@ export const CATEGORIES = [
     },
     {
         id: 3,
-        name: "Traveling Bags",
-        slug: "traveling-bags"
-    },
-    {
-        id: 4,
         name: "Jewelry",
         slug: "jewelry"
     },
     {
-        id: 5,
+        id: 4,
         name: "Clothing",
         slug: "clothing"
     },
     {
-        id: 6,
+        id: 5,
         name: "Purse",
         slug: "purse"
     },
     {
-        id: 7,
+        id: 6,
         name: "Watches",
         slug: "watches"
     },
     {
-        id: 8,
+        id: 7,
         name: "Belts",
         slug: "belts"
     },
     {
-        id: 9,
+        id: 8,
         name: "Sunglasses",
         slug: "sunglasses"
     },
     {
-        id: 10,
+        id: 9,
         name: "Suitcase",
         slug: "suitcase"
     },
     {
-        id: 11,
+        id: 10,
         name: "Jackets",
         slug: "jackets"
     }
@@ -59,72 +54,62 @@ export const CATEGORIES = [
 export const BRANDS = [
     {
         id: 1,
-        name: "Louis Vuitton",
-        slug: "lv"
-    },
-    {
-        id: 2,
         name: "Gucci",
         slug: "gucci"
     },
     {
+        id: 2,
+        name: "Rolex",
+        slug: "rolex"
+    },
+    {
         id: 3,
-        name: "Channel",
-        slug: "channel"
+        name: "Chanel",
+        slug: "chanel"
     },
     {
         id: 4,
-        name: "Dior",
-        slug: "dior"
-    },
-    {
-        id: 5,
-        name: "Prada",
-        slug: "prada"
-    },
-    {
-        id: 6,
-        name: "Hermes",
-        slug: "hermes"
-    },
-    {
-        id: 7,
-        name: "Balenciaga",
-        slug: "balenciaga"
-    },
-    {
-        id: 8,
         name: "Nike",
         slug: "nike"
     },
     {
-        id: 9,
-        name: "Adidas",
-        slug: "adidas"
+        id: 5,
+        name: "Dior",
+        slug: "dior"
     },
     {
-        id: 10,
-        name: "Fendi",
-        slug: "fendi"
-    },
-    {
-        id: 11,
-        name: "YSL",
-        slug: "ysl"
-    },
-    {
-        id: 12,
+        id: 6,
         name: "Celine",
         slug: "celine"
     },
     {
-        id: 13,
+        id: 7,
+        name: "Louis Vuitton",
+        slug: "lv"
+    },
+    {
+        id: 8,
         name: "Valentino",
         slug: "valentino"
     },
     {
-        id: 14,
-        name: "Rolex",
-        slug: "rolex"
+        id: 9,
+        name: "Fendi",
+        slug: "fendi"
+    },
+    {
+        id: 10,
+        name: "Prada",
+        slug: "prada"
+    },
+    {
+        id: 11,
+        name: "Hermes",
+        slug: "hermes"
+    },
+    {
+        id: 12,
+        name: "YSL",
+        slug: "ysl"
     }
 ];

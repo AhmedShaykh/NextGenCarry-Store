@@ -1,36 +1,21 @@
 "use client";
 import { useState } from "react";
+import { LV_API, GUCCI_API, CHANEL_API, DIOR_API, PRADA_API, HERMES_API, NIKE_API, FENDI_API, YSL_API, CELINE_API, VALENTINO_API, ROLEX_API } from "@/services/brandsApi";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { z } from "zod";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import {
-    LV_API,
-    GUCCI_API,
-    CHANEL_API,
-    DIOR_API,
-    PRADA_API,
-    HERMES_API,
-    BALENCIAGA_API,
-    NIKE_API,
-    ADIDAS_API,
-    FENDI_API,
-    YSL_API,
-    CELINE_API,
-    VALENTINO_API,
-    ROLEX_API
-} from "@/services/brandsApi";
 
 const productSchema = z.object({
     brand: z.string().min(1, "Brand is required"),
     category: z.string().min(1, "Category is required"),
-    imageUrl: z.string().url("Invalid image URL").min(1, "Image URL is required"),
+    imageUrl: z.string().url("Invalid Image URL").min(1, "Image URL is required"),
     title: z.string().min(1, "Title is required"),
     desc: z.string().min(1, "Description is required")
 });
@@ -43,21 +28,18 @@ const brands = [
     { value: "CHANEL", label: "Chanel" },
     { value: "DIOR", label: "Dior" },
     { value: "PRADA", label: "Prada" },
-    { value: "HERMES", label: "Hermès" },
-    { value: "BALENCIAGA", label: "Balenciaga" },
+    { value: "HERMES", label: "Hermes" },
     { value: "NIKE", label: "Nike" },
-    { value: "ADIDAS", label: "Adidas" },
     { value: "FENDI", label: "Fendi" },
     { value: "YSL", label: "YSL" },
     { value: "CELINE", label: "Celine" },
     { value: "VALENTINO", label: "Valentino" },
-    { value: "ROLEX", label: "Rolex" },
+    { value: "ROLEX", label: "Rolex" }
 ];
 
 const categories = [
     { value: "LUXURY_HANDBAGS", label: "Luxury Handbags" },
     { value: "SHOES_HEELS", label: "Shoes & Heels" },
-    { value: "TRAVELING_BAGS", label: "Traveling Bags" },
     { value: "JEWELRY", label: "Jewelry" },
     { value: "CLOTHING", label: "Clothing" },
     { value: "PURSE", label: "Purse" },
@@ -65,7 +47,7 @@ const categories = [
     { value: "BELTS", label: "Belts" },
     { value: "SUNGLASSES", label: "Sunglasses" },
     { value: "SUITCASE", label: "Suitcase" },
-    { value: "JACKETS", label: "Jackets" },
+    { value: "JACKETS", label: "Jackets" }
 ];
 
 const brandToApi: Record<string, (formData: any) => Promise<any>> = {
@@ -75,9 +57,7 @@ const brandToApi: Record<string, (formData: any) => Promise<any>> = {
     DIOR: DIOR_API,
     PRADA: PRADA_API,
     HERMES: HERMES_API,
-    BALENCIAGA: BALENCIAGA_API,
     NIKE: NIKE_API,
-    ADIDAS: ADIDAS_API,
     FENDI: FENDI_API,
     YSL: YSL_API,
     CELINE: CELINE_API,
@@ -154,7 +134,9 @@ const ProductForm = ({ onSuccess }: { onSuccess: () => void }) => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <FieldGroup>
                 <Field>
-                    <FieldLabel htmlFor="brand">Brand</FieldLabel>
+                    <FieldLabel htmlFor="brand">
+                        Brand
+                    </FieldLabel>
 
                     <Controller
                         name="brand"
@@ -185,7 +167,9 @@ const ProductForm = ({ onSuccess }: { onSuccess: () => void }) => {
                 </Field>
 
                 <Field>
-                    <FieldLabel htmlFor="category">Category</FieldLabel>
+                    <FieldLabel htmlFor="category">
+                        Category
+                    </FieldLabel>
 
                     <Controller
                         name="category"
@@ -216,7 +200,9 @@ const ProductForm = ({ onSuccess }: { onSuccess: () => void }) => {
                 </Field>
 
                 <Field>
-                    <FieldLabel htmlFor="imageUrl">Image URL</FieldLabel>
+                    <FieldLabel htmlFor="imageUrl">
+                        Image URL
+                    </FieldLabel>
 
                     <Input
                         id="imageUrl"
@@ -233,7 +219,9 @@ const ProductForm = ({ onSuccess }: { onSuccess: () => void }) => {
                 </Field>
 
                 <Field>
-                    <FieldLabel htmlFor="title">Title</FieldLabel>
+                    <FieldLabel htmlFor="title">
+                        Title
+                    </FieldLabel>
 
                     <Input
                         id="title"
@@ -250,7 +238,9 @@ const ProductForm = ({ onSuccess }: { onSuccess: () => void }) => {
                 </Field>
 
                 <Field>
-                    <FieldLabel htmlFor="desc">Description</FieldLabel>
+                    <FieldLabel htmlFor="desc">
+                        Description
+                    </FieldLabel>
 
                     <Textarea
                         id="desc"
